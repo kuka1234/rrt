@@ -18,16 +18,21 @@ class Make_graph:
         elif type(neighbours).__module__ == numpy.__name__ :
                 #self.graph[tuple(map(tuple, vertex))].append(tuple(map(tuple, neighbours)))
                 #self.graph[tuple(numpy.ndarray.tolist(vertex))].append(tuple(numpy.ndarray.tolist(neighbours)))
-                self.graph[tuple(numpy.ndarray.tolist(vertex))].append(tuple(numpy.ndarray.tolist(neighbours)))
+                #self.graph[tuple(numpy.ndarray.tolist(vertex))].append(tuple(numpy.ndarray.tolist(neighbours)))
+                self.graph[tuple(numpy.ndarray.tolist(neighbours))] = (tuple(numpy.ndarray.tolist(vertex)))
         else:
             raise Exception("neighbours is of wrong type")
     def set_graph(self, user_graph):
         self.graph = user_graph
 
     def delete_node(self, vertex):
+        #.graph.pop(list(self.graph.keys())[tuple(numpy.ndarray.tolist(vertex))])
+        print("deleting")
+        self.graph.pop(tuple(numpy.ndarray.tolist(vertex)), print(tuple(numpy.ndarray.tolist(vertex))))
+        print(self.graph)
         try:
             x = list(self.graph.values()).index(tuple(numpy.ndarray.tolist(vertex)))
-            print(self.graph.keys())
+            #print(self.graph.keys())
             #self.graph.pop(list(self.graph.keys())[x])
         except:
             #print(tuple(numpy.ndarray.tolist(vertex)))

@@ -38,7 +38,7 @@ points_dict[convNpToArray(starting_point)] = 0
 step_distance = 6
 current_point = np.array(starting_point)
 
-graph.add_node((50, 60), (50, 0))
+graph.add_node((50, 60), (50, 0)) #obstacles
 
 while (len(points) < 200):
     search_radius = 2
